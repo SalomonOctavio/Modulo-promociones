@@ -1,83 +1,106 @@
-# Módulo de Promociones (WOM, 2015–2017)
+# Módulo de Promociones (TELCO, 2015–2017)
 
-Rol y alcance Product Manager Desarrollo · transversal con MarketingDesarrollo, TI, CRMBilling.  
-Sistemas implicados Ericsson BSCS iX, Oracle Siebel CRM, ALU 8610 ICC, Huawei UPCC (PCRF).
+🧩 Caso real adaptado para portafolio profesional. Rol: Product Manager Desarrollo (PO funcional).  
+👥 Coordinación transversal con Marketing, Desarrollo, TI, CRM y Billing.
 
-## Contexto
-Impulsar campañas de promociones basadas en eventos (altas, cambios de plan, recargas, compras de bolsas), evitando configuraciones manuales dispersas y logrando trazabilidad entre canales.
+---
 
-## Contexto y disparador inicial
-Promociones se ejecutaban de forma **manual**, sin descuentos recurrentes; el “enganche” venía por precios de equipos/portabilidad. Con campaña de portabilidad **2+ líneas** y presión de fechas, se gatilló la **automatización**. 
+## 🎯 Objetivo
 
-## Objetivo de negocio
-Aumentar upsellretención y mejorar CX habilitando reglas de negocio que asignen promociones automáticas y medibles por segmentoevento.
+Habilitar promociones automáticas por evento (altas, cambios de plan, recargas, bolsas), con trazabilidad y menor time-to-market.  
+MVP: módulo backend para otorgar **bolsas de datos** y **descuentos** con reglas configurables.
 
-## Alcance y restricciones
-**MVP:** módulo para otorgar **bolsas** y **descuentos**; **caso base**: altas reciben **bolsa 4G de 10 GB**; soporte a prepago “híbrido”. Ventana dura: campaña 4G (~1 año). **Dependencias**: BSCS iX, ALU 8610 ICC, Huawei UPCC (PCRF). 
+---
 
-## Problema
-- Promociones manuales y desalineadas entre sistemas.  
-- Baja trazabilidad y time-to-market lento para nuevas campañas.  
-- Riesgo de errores operativos en configuración y despliegue.
+## ⚙️ Contexto
 
-## HipótesisPropuesta
-Diseñar un módulo orquestador de promociones orientado a eventos, con catálogo versionado de reglas y flujos de validaciónUAT E2E para salida segura a producción.
+Antes: promociones configuradas manualmente, sin trazabilidad ni continuidad.  
+Presión de campaña fija (portabilidad 2+ líneas) obligó a acelerar automatización.  
+Se priorizó **la bolsa de 10 GB 4G** para altas nuevas y segmento híbrido, con ventana operativa de 1 año.
 
-## Enfoque (decisiones clave)
-- **Sin GUI** en 1ª etapa (se incorpora más tarde con capacitación).  
-- **UAT simplificado**: pruebas directas en prod por alta de oferta y escenarios acotados.  
-- **Regla simple** para acelerar: aplicar la bolsa a toda la base (menos ramificaciones).  
-- **Scope pragmático**: reducir errores (no sanear todas las inconsistencias). 
+---
 
-## Enfoque y ejecución
-- Definición de reglas por eventosegmento (condiciones, vigencias, límites).  
-- Integraciones con BSCSCRMICCPCRF y mapeos de datos para gatillar beneficios.  
-- Backlog y criterios de aceptación; planificación y UAT end-to-end (negocio + TI).  
-- Catálogo de promociones con versionado y control de cambios.  
-- Comunicaciones de lanzamiento y playbooks de soporte post–Go-Live.
+## 🔧 Enfoque y decisiones clave
 
-## Resultado (KPIsOutcomes)
-- Time-to-market nuevas promociones configurables en horasdías (antes, semanas). (estimado)  
-- Calidad reducción de errores manuales y mayor trazabilidad por eventosegmento. (cualitativo)  
-- Negocio tendencia positiva en upsellretención en campañas gatilladas por eventos. (cualitativo)
-**TTGL** cumplido en fecha; **TTV** con adopción temprana y caída de errores (mitigados con el workaround). Efectos: **trazabilidad** de beneficios y **confianza** comercial por mayor previsibilidad. 
+- **Sin GUI inicial** (se incorporó en iteración posterior con training).
+- **UAT simplificado**: pruebas acotadas en producción, por segmento y modalidad.
+- **Feature flags** y scope congelado: enfoque en estabilidad operativa.
+- **Workaround documentado**: para errores funcionales menores.
 
-## Go-live y control
-Despliegue **rápido** (sin ceremonia formal), **smoke mínimo**. Monitoreo post por Call Center y **N2** + rondas **2×/día** por una semana. **Workaround** documentado para errores detectados. 
+---
 
-## Estabilidad y soporte post
-Monitoreo inicial, corrección temprana de incidencias y checklist de Go-Live; coordinación con Operaciones, Atención y Reportería para cierre de brechas.
+## 📦 Implementación
 
-## Aprendizajes
-Repetir: **MVP simple** con reglas claras; **monitoreo cercano** post-lanzamiento.  
-Mejorar: más alineación con proveedor IT; **PM dedicado** para handover; planificar **GUI soporte** desde la iteración 1. 
+- Definición de reglas por evento y segmento (vigencias, condiciones, límites).
+- Integraciones con BSCS iX, Siebel CRM, ALU ICC, Huawei UPCC (PCRF).
+- Backlog funcional, criterios de aceptación y testing end-to-end.
+- Catálogo versionado de promociones; control de cambios y checklist de liberación.
+- Comunicación interna y plan de soporte post go-live.
 
-## Métricas (TTGL/TTV)
-| KPI | Línea base | Resultado | Nota |
-|---|---:|---:|---|
-| **TTGL** (semanas) | 6 | 3 | Campaña en fecha |
-| **TTV** (días a adopción) | n/a | ⟨N⟩ | Activación + comms |
-| Errores config/release | 8 | 2 | Workaround + checklist |
+---
 
-**Artefactos incluidos**
+## 📈 Resultados y métricas
+
+| KPI                         | Línea base | Resultado | Notas                                     |
+|----------------------------|------------|-----------|-------------------------------------------|
+| **TTGL** (semanas)         | 6          | 3         | Go-live en fecha comprometida             |
+| **TTV** (días a adopción)  | —          | ⟨N⟩       | Activación + comunicaciones efectivas     |
+| Errores config / release   | 8          | 2         | Controlados vía workaround y checklist    |
+
+- Time-to-market de nuevas promociones pasó de semanas a días.
+- Mayor trazabilidad por segmento/evento → reducción de errores operativos.
+- Adopción funcional temprana; confianza interna para siguientes campañas.
+
+---
+
+## 🚀 Go-live y soporte
+
+- Despliegue controlado sin ceremonia formal.
+- Validación funcional en producción: altas, cambios, beneficios aplicados.
+- Monitoreo post-lanzamiento: 2 rondas diarias por 1 semana con N2 y canales.
+- Coordinación con Atención, Reportería y Operaciones.
+
+---
+
+## 📚 Artefactos incluidos
 
 📁 `/diagrams`  
-- [`flujo-to-be.mmd`](./diagrams/flujo-to-be.mmd): flujo funcional por segmento y modalidad (B2C/B2B, Postpago/Híbrido).  
-- [`contexto-sistemas.mmd`](./diagrams/contexto-sistemas.mmd): vista de integración entre canales, CRM, orquestador y sistemas core (PCRF, BSCS).
+- [`flujo-to-be.mmd`](./diagrams/flujo-to-be.mmd): flujo por segmento/modalidad.  
+- [`contexto-sistemas.mmd`](./diagrams/contexto-sistemas.mmd): vista de sistemas (canales, CRM, orquestador, core).
 
 📁 `/docs`  
-- [`catalogo-reglas.md`](./docs/catalogo-reglas.md): catálogo de reglas de promoción por segmento.  
-- [`criterios-aceptacion.md`](./docs/criterios-aceptacion.md): criterios de aceptación por escenario funcional.  
-- [`kpis.md`](./docs/kpis.md): definición de KPIs TTGL/TTV y placeholders.
+- [`catalogo-reglas.md`](./docs/catalogo-reglas.md): reglas por segmento/modalidad.  
+- [`criterios-aceptacion.md`](./docs/criterios-aceptacion.md): criterios de aceptación por caso.  
+- [`kpis.md`](./docs/kpis.md): definición de TTGL/TTV y notas de medición.
 
 📁 `/uat`  
-- [`plan-uat.md`](./uat/plan-uat.md): plan de validación UAT por ventana de campaña.  
-- [`bitacora-hallazgos.md`](./uat/bitacora-hallazgos.md): hallazgos funcionales en ambiente productivo.
+- [`plan-uat.md`](./uat/plan-uat.md): plan de pruebas simplificadas en prod.  
+- *(bitácora de hallazgos omitida en esta versión)*
 
 📁 `/comms`  
-- [`comunicado-lanzamiento.md`](./comms/comunicado-lanzamiento.md): anuncio de go-live y alcance funcional.  
-- [`checklist-go-no-go.md`](./comms/checklist-go-no-go.md): criterios de validación previos a liberación.
+- [`comunicado-lanzamiento.md`](./comms/comunicado-lanzamiento.md): anuncio interno.  
+- [`checklist-go-no-go.md`](./comms/checklist-go-no-go.md): criterios de validación.
 
+---
 
-## Créditos y roles
-MarketingDesarrollo, TI (CRMBillingRed), Procesos, Atención; proveedores de plataforma (ALUNokia, Huawei).
+## 🧠 Aprendizajes
+
+✅ Lo que funcionó:
+- MVP simple con reglas claras.
+- Monitoreo cercano y coordinación efectiva.
+
+🔧 Mejoras futuras:
+- Incluir PM técnico para handover evolutivo.
+- Incorporar GUI de soporte desde iteración 1.
+- Mayor alineación con proveedor de plataforma.
+
+---
+
+🛈 **Nota:** Este caso ha sido adaptado para fines de portafolio profesional. Se han omitido nombres comerciales, cifras sensibles y detalles internos, manteniendo fiel el enfoque funcional, decisiones clave y resultados alcanzados en contexto real.
+
+---
+
+## 🤝 Créditos
+
+Equipos de Marketing, TI, CRM, Billing, Atención y Proveedores (ALU/Nokia, Huawei).  
+Rol funcional: Product Owner (Product Manager Desarrollo).
