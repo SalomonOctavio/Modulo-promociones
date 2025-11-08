@@ -1,0 +1,46 @@
+graph LR
+  %% Canales
+  subgraph Canales
+    WEB[Web/Portal]
+    FRONT[Front de Ventas]
+    USSD[Canal USSD]
+    IVR[IVR]
+  end
+
+  %% Core
+  CRM[Siebel / CRM]
+  BSCS[BSCS iX (Rating/Billing)]
+  PCRF[UPCC / PCRF (Políticas)]
+  ORQ[Orquestador de Promociones]
+  CHG[Charging / Beneficios]
+  LOG[(Trazabilidad / Auditoría)]
+  MSTR[[MicroStrategy / Reporting]]
+
+  %% Admin (futuro)
+  GUI[(Admin GUI / Catálogo)]
+  FLAGS[(Feature Flags)]
+
+  %% Flujos principales
+  WEB --> CRM
+  FRONT --> CRM
+  USSD --> CRM
+  IVR --> CRM
+
+  CRM --> ORQ
+  ORQ <--> BSCS
+  ORQ <--> PCRF
+  ORQ --> CHG
+
+  %% Trazabilidad y KPIs
+  ORQ --> LOG
+  BSCS --> LOG
+  PCRF --> LOG
+  LOG --> MSTR
+
+  %% Gestión
+  GUI --> ORQ
+  GUI --> FLAGS
+  FLAGS --> ORQ
+
+  %% Notas
+  classDef note fill:#f7f7f7,stroke:#bbb,color:#333;
