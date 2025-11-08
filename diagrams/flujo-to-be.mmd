@@ -1,3 +1,5 @@
+%% Flujo TO-BE de asignación de promociones (TELCO)
+
 flowchart LR
   A["Evento: Alta 4G / Portabilidad"] --> S{Segmento?}
 
@@ -5,10 +7,10 @@ flowchart LR
   S -->|B2B| N{Modalidad?}
 
   M -->|Postpago| R1["R-001 · Bolsa 10 GB"]
-  M -->|Híbrido|  R2["R-002 · Bolsa 10 GB"]
+  M -->|Híbrido| R2["R-002 · Bolsa 10 GB"]
 
   N -->|Postpago| R3["R-003 · Descuento mensual X%"]
-  N -->|Híbrido|  R4["R-004 · Bolsa 10 GB"]
+  N -->|Híbrido| R4["R-004 · Bolsa 10 GB"]
 
   R1 --> T["Trazabilidad → Reporte"]
   R2 --> T
@@ -16,5 +18,5 @@ flowchart LR
   R4 --> T
 
   %% Puntos de verificación
-  T --> V1(("CRM/BSCS"))
-  T --> V2(("Reporte MSTR"))
+  T --> V1["CRM/BSCS"]
+  T --> V2["Reporte MSTR"]
