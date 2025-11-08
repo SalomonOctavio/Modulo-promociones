@@ -59,11 +59,25 @@ Mejorar: más alineación con proveedor IT; **PM dedicado** para handover; plani
 | **TTV** (días a adopción) | n/a | ⟨N⟩ | Activación + comms |
 | Errores config/release | 8 | 2 | Workaround + checklist |
 
-## Artefactos
-- Diagrama To-Be: [`diagrams/flujo-to-be.mmd`](./diagrams/flujo-to-be.mmd)  
-- Plan UAT / Bitácora: [`uat/plan-uat.md`](./uat/plan-uat.md) · [`uat/bitacora-hallazgos.md`](./uat/bitacora-hallazgos.md)  
-- Catálogo / ACs / KPIs: [`docs/catalogo-reglas.md`](./docs/catalogo-reglas.md) · [`docs/criterios-aceptacion.md`](./docs/criterios-aceptacion.md) · [`docs/kpis.md`](./docs/kpis.md)  
-- Comms / Go-No-Go: [`comms/comunicado-lanzamiento.md`](./comms/comunicado-lanzamiento.md) · [`comms/checklist-go-no-go.md`](./comms/checklist-go-no-go.md)
+**Artefactos incluidos**
+
+📁 `/diagrams`  
+- [`flujo-to-be.mmd`](./diagrams/flujo-to-be.mmd): flujo funcional por segmento y modalidad (B2C/B2B, Postpago/Híbrido).  
+- [`contexto-sistemas.mmd`](./diagrams/contexto-sistemas.mmd): vista de integración entre canales, CRM, orquestador y sistemas core (PCRF, BSCS).
+
+📁 `/docs`  
+- [`catalogo-reglas.md`](./docs/catalogo-reglas.md): catálogo de reglas de promoción por segmento.  
+- [`criterios-aceptacion.md`](./docs/criterios-aceptacion.md): criterios de aceptación por escenario funcional.  
+- [`kpis.md`](./docs/kpis.md): definición de KPIs TTGL/TTV y placeholders.
+
+📁 `/uat`  
+- [`plan-uat.md`](./uat/plan-uat.md): plan de validación UAT por ventana de campaña.  
+- [`bitacora-hallazgos.md`](./uat/bitacora-hallazgos.md): hallazgos funcionales en ambiente productivo.
+
+📁 `/comms`  
+- [`comunicado-lanzamiento.md`](./comms/comunicado-lanzamiento.md): anuncio de go-live y alcance funcional.  
+- [`checklist-go-no-go.md`](./comms/checklist-go-no-go.md): criterios de validación previos a liberación.
+
 
 ## Créditos y roles
 MarketingDesarrollo, TI (CRMBillingRed), Procesos, Atención; proveedores de plataforma (ALUNokia, Huawei).
