@@ -17,7 +17,7 @@ graph LR
   ORQ["Orquestador de Promociones"]
   CHG["Charging / Beneficios"]
   LOG["Trazabilidad / Auditoría"]
-  MSTR["MicroStrategy / Reporting"]
+  MSTR["Data Warehouse / Reporting"]
 
   %% Admin (futuro)
   GUI["Admin GUI / Catálogo"]
@@ -26,7 +26,6 @@ graph LR
   %% Flujos principales
   WEB --> CRM
   FRONT --> CRM
-  USSD --> CRM
   IVR --> CRM
 
   CRM --> ORQ
